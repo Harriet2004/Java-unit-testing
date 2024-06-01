@@ -20,6 +20,7 @@ public class Post {
         this.postTags = parseTags(postTags);
         this.postTypes = postTypes;
         this.postEmergency = postEmergency;
+        this.comments = new ArrayList<>();
     }
 
     public boolean addPost() {
@@ -27,7 +28,7 @@ public class Post {
             return false;
         }
         try (BufferedWriter writer  = new BufferedWriter (new FileWriter("post.txt",true))) {
-            writer.write("Post ID:" + this.postID + "\n");
+            writer.write("\n" + "Post ID:" + this.postID + "\n");
             writer.write("Title:" + this.postTitle + "\n");
             writer.write("Body:" + this.postBody + "\n");
             writer.write("Tags: ");
@@ -56,21 +57,21 @@ public class Post {
         return tags;
     }
 
-//    public boolean addComment() {
-//        if (!isValidComment()) {
-//            return false;
-//        }
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter("post.txt",true) {
-//            writer.write("Comment for Post ID:" + this.postID + ":");
-//            for (String comment : comments) {
-//                writer.write(comment + "\n");
-//            }
-//            return true;
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+    public boolean addComment(int Id, String commentText) {
+        if (!isValidComment(commentText)) {
+            return false;
+        }
+
+        comments.add(commentText);
+        try (BufferedWriter writer  = new BufferedWriter (new FileWriter("post.txt",true))) {
+            writer.write("Post ID" + Id + ": ");
+            writer.write(commentText + "\n");
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     private boolean isValidPost() {
         if (postTitle.length() < 10 || postTitle.length() > 250) {
@@ -116,16 +117,14 @@ public class Post {
         return true;
     }
 
-//    private boolean isValidComment() {
-//        for (String comment: comments) {
-//            if (comment.length() < 4 || comment.length() > 10 || !Character.isUpperCase(comment.charAt[0])) {
-//                return false;
-//            }
-//        }
-//
-//        if (comments.size() > 5 || ((postTypes.equals("Easy") || postEmergency.equals("Ordinary")) && comments.size() > 3)) {
-//            return false;
-//        }
-//        return true;
-//    }
+    private boolean isValidComment(String commentText) {
+        if (commentText.length() < 4 || commentText.length() > 10 || !Character.isUpperCase(commentText.charAt(0))) {
+            return false;
+        }
+
+        if (comments.size() > 5 || ((postTypes.equals("Easy") || postEmergency.equals("Ordinary")) && comments.size() > 3)) {
+            return false;
+        }
+        return true;
+    }
 }
