@@ -140,7 +140,7 @@ class CommentTest {
 
     @Test
     void testAddComment_testcase6() {
-        //Test Case 6: Checking the addComment() function with invalid inputs (adding more than 3 comments for “Easy” and “Ordinary” posts)
+        //Test Case 6: Checking the addComment() function with invalid inputs (adding more than 3 comments for “Easy” or “Ordinary” posts)
 
         //Adding a valid post for the comments test case
         Post testingPostData_6 = new Post(6,"Similar post Title", validBodyText, "[tag1,tag2]",
