@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CommentTest {
 
     //Defining a variable validBodyText (valid postBody for valid inputs) which will be used in the test cases
-    String validBodyText = "Lroororem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet a " +
+    String validBodyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet a " +
             "dolor at malesuada. Nam a elit luctus, ultricies turpis eu, facilisis velit. Maecenas tempus augue " +
             "vel tristique accumsan. Morbi dictum massa ac hendrerit efficitur ahsidhi mans, dsflj kdkkd alsal +" +
             "asdkhab ei qhs abena sc akkef aq xkxk ehap lskdap dm v, qpkefm cnxv kjn qpepc zlkcv akjf akjf";
