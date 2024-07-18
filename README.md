@@ -1,0 +1,1 @@
+This is just a program for doing unit tests with some methods using JUnit Testing. Two methods addPost() and addComment() are implemented and a number of testcases are experimented to see if the method works as per the requirements and conditions it has to meet.
